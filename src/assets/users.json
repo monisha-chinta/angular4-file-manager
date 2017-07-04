@@ -1,0 +1,16 @@
+[
+  {
+    "name" : "Monisha Chinta",
+    "email" : "monisha.chinta@gmail.com",
+    "password" : "abc123"
+  },
+  {
+    "name" : "Sunil",
+    "email" : "sunil@gmail.com",
+    "password" : "abc123"
+  },{
+    "name" : "John Doe",
+    "email" : "john@gmail.com",
+    "password" : "abc123"
+  }
+]

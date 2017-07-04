@@ -1,0 +1,46 @@
+<div class="container">
+  <div class="row" style="margin-top: 20px;">
+    <div class="col-md-4 col-md-offset-4">
+      <form>
+      <md-card class="example-card">
+        <md-card-header>
+          <md-toolbar color="accent">
+            Register
+          </md-toolbar>
+        </md-card-header>
+        <md-card-content>
+          <table class="example-full-width" cellspacing="0">
+            <tr>
+              <td><md-input-container class="example-full-width">
+                <input mdInput placeholder="Name" name="Name" [(ngModel)]="user.name" required>
+                <md-error>This field is required</md-error>
+              </md-input-container></td>
+            </tr>
+            <tr>
+              <td><md-input-container class="example-full-width">
+                <input mdInput placeholder="Email" name="Email" [(ngModel)]="user.email" required [formControl]="emailFormControl">
+                <md-error *ngIf="emailFormControl.hasError('required')">
+                  This field is required
+                </md-error>
+                <md-error *ngIf="emailFormControl.hasError('pattern')">
+                  Please enter a valid email address
+                </md-error>
+              </md-input-container></td>
+            </tr>
+            <tr>
+              <td><md-input-container class="example-full-width">
+                <input mdInput type="password" placeholder="Password" name="Password" [(ngModel)]="user.password" required>
+                <md-error>This field is required</md-error>
+              </md-input-container></td>
+            </tr>
+          </table>
+        </md-card-content>
+        <md-card-actions>
+          <button md-raised-button (click)="register()" class="mat-primary custom-register">Register</button>
+        </md-card-actions>
+        <p *ngIf="errorMsg" class="text-danger custom-error"> Email already exists! </p>
+      </md-card>
+    </form>
+    </div>
+  </div>
+</div>

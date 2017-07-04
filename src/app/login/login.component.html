@@ -1,0 +1,41 @@
+<div class="container">
+  <div class="row" style="margin-top: 20px;">
+    <div class="col-md-4 col-md-offset-4">
+      <md-card class="example-card">
+        <md-card-header>
+          <md-card-title>
+            <md-toolbar color="accent">
+              Login
+            </md-toolbar>
+          </md-card-title>
+        </md-card-header>
+        <md-card-content>
+          <table class="example-full-width" cellspacing="0">
+            <tr>
+              <td><md-input-container class="example-full-width">
+                <input mdInput placeholder="Email" [(ngModel)]="user.email" required [formControl]="emailFormControl">
+                <md-error *ngIf="emailFormControl.hasError('required')">
+                  This field is required
+                </md-error>
+                <md-error *ngIf="emailFormControl.hasError('pattern')">
+                  Please enter a valid email address
+                </md-error>
+              </md-input-container></td>
+            </tr>
+            <tr>
+              <td><md-input-container class="example-full-width">
+                <input mdInput type="password" placeholder="Password" [(ngModel)]="user.password" required>
+                <md-error>This field is required</md-error>
+              </md-input-container></td>
+            </tr>
+          </table>
+        </md-card-content>
+        <md-card-actions>
+          <button md-raised-button (click)="login()" class="mat-primary">Login</button>
+          <a routerLink="/register">Register here</a>
+        </md-card-actions>
+          <p *ngIf="errorMsg" class="text-danger custom-error"> Invalid email or password! </p>
+      </md-card>
+    </div>
+  </div>
+</div>

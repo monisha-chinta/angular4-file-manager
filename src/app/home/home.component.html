@@ -1,0 +1,57 @@
+<md-toolbar color="primary">
+  <p>Welcome {{ username }} !!</p>
+  <span class="example-spacer"></span>
+  <button md-icon-button [mdMenuTriggerFor]="menu"><i class="material-icons">more_vert</i></button>
+  <md-menu #menu="mdMenu">
+    <button md-menu-item (click)="logout()">Logout</button>
+  </md-menu>
+</md-toolbar>
+<div class="container">
+  <div class="row" style="margin-top: 20px;">
+    <div class="col-md-3 col-md-offset-4">
+      <input type="file" ng2FileSelect [uploader]="uploader" />
+    </div>
+    <div class="col-md-1">
+      <button type="button" class="btn btn-success btn-s" (click)="uploader.uploadAll()" [disabled]="!uploader.getNotUploadedItems().length">
+        Upload
+      </button>
+    </div>
+  </div>
+  <div>
+    Progress:
+    <div class="progress" style="">
+      <div class="progress-bar" role="progressbar" [ngStyle]="{ 'width': uploader.progress + '%' }"></div>
+    </div>
+    <div *ngIf="fileStatus">
+      <p [ngClass]="{ 'text-success' : fileStatus.status , 'text-danger' : !fileStatus.status }"> {{ fileStatus.message }} </p>
+    </div>
+  </div>
+  <hr />
+  <table class="table table-hover" style="margin-top: 20px;">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Owner</th>
+        <th>Uploaded on</th>
+        <th>Size</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let file of files">
+        <td>{{file.filename}}</td>
+        <td>{{ username == file.metadata.username ? 'Me' : file.metadata.username }}</td>
+        <td>{{file.uploadDate | date:'medium'}}</td>
+        <td>{{file.length}}</td>
+        <td>
+          <button md-icon-button (click)="download(file._id)" mdTooltip="Download File" mdTooltipPosition="below">
+            <i class="material-icons">cloud_download</i>
+          </button>
+          <button md-icon-button (click)="delete(file._id)" mdTooltip="Delete" mdTooltipPosition="below">
+            <i class="material-icons">delete</i>
+          </button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
