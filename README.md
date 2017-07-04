@@ -31,7 +31,7 @@ Build
     
 Run Express server
 
-    node expressServer.js
+    node server.js
 
     * This server runs on port: 3001
     * Open localhost:3001 to view the login page
