@@ -31,6 +31,8 @@ Build
     
 Run Express server
 
+*Note: Install MongoDB from [here](https://www.mongodb.com/download-center#community)
+
     node server.js
 
     * This server runs on port: 3001
