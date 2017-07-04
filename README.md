@@ -1,31 +1,41 @@
-# Angular2Basics
+# Description
 
-This project was generated with [angular-cli](https://github.com/angular/angular-cli) version 1.0.0-beta.28.3.
+File Manager - an application used to upload and download files. Created using Angular4 for front-end; ExpressJS and MongoDB for back-end.
+User can register and login to his account to view, upload or download files. Admin can view all users files.
 
-## Development server
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+Modules used:
+* passport.js for user authentication
+* GridFs for storing file in MongoDB
+* Material Design for stylying
 
-## Code scaffolding
+## Quick Start
+Clone the repository
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive/pipe/service/class/module`.
+    git clone https://github.com/monisha-chinta/angular4-file-manager.git
 
-## Build
+Install local NPM packages
+   
+*front-end
+ 
+    cd angular4-file-manager
+    npm install
+    
+*server side
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `-prod` flag for a production build.
+    cd angular4-file-manager/server
+    npm install
+    
+Build
 
-## Running unit tests
+    Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+    
+Run Express server
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+    node expressServer.js
 
-## Running end-to-end tests
+    * This server runs on port: 3001
+    * Open localhost:3001 to view the login page
 
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-Before running the tests make sure you are serving the app via `ng serve`.
+*Note
 
-## Deploying to GitHub Pages
-
-Run `ng github-pages:deploy` to deploy to GitHub Pages.
-
-## Further help
-
-To get more help on the `angular-cli` use `ng help` or go check out the [Angular-CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+    Register admin with email address as `admin@filemanager.com` to use admin functionality. 
